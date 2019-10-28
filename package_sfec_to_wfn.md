@@ -1,11 +1,29 @@
 # SF EC to ADP WFN - CPI
 
+This package supports integration of SuccessFactors Employee Central with Third Party Payroll Vendor-ADP Workforce Now (WFN). 
+
+
+
+**Name**: SuccessFactors Employee Central to ADP Workforce Now (WFN)
+
+**Technical Name**: SuccessFactorsEmployeeCentraltoADPWorkforceNowWFN
+
+
+
 ## Data to Transfer
+
+ This integration sends the following data from Employee Central to Workforce Software:  
 
 - Employee master data (name, address, phone, email, and so on)
 - Employment and job (hire date, manager, and so on)
 - Compensation (annual salary, total compensation)
 - Life event notification
+
+**Note:**
+
+This package supports outbound integration from Employee Central to ADP Workforce Now.
+
+
 
 ## Employee Data Replication
 
