@@ -1,0 +1,2333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+	<wsdl:types>
+		<xsd:schema elementFormDefault="qualified"
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:element name="queryResponse">
+				<xsd:annotation>
+					<xsd:documentation>Response of a query call to the CompoundEmployee
+						API
+					</xsd:documentation>
+					<xsd:documentation>- Release 1308 - Last modified 2013-07-24 by
+						D021895 - Added more custom fields to job
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="result" type="QueryResult" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CompoundEmployee" type="SFObject">
+				<xsd:annotation>
+					<xsd:documentation>For import into BOOMI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:complexType name="compensationInformationType">
+				<xsd:annotation>
+					<xsd:documentation>Compensation information</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="action" type="xsd:long" minOccurs="0" />
+					<xsd:element name="flsa_status" minOccurs="0">
+						<xsd:complexType />
+					</xsd:element>
+					<xsd:element name="job_level" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="pay_type" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="start_date" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="end_date" type="xsd:date" minOccurs="0" />
+					<xsd:element name="last_modified_on" type="xsd:dateTime"
+						minOccurs="0" />
+					<xsd:element name="pay_group" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="payroll_id" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="paycompensation_recurring" type="paycompensationRecurringType"
+						minOccurs="0" maxOccurs="unbounded" />
+					<xsd:element name="custom_string1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double10" type="xsd:string"
+						minOccurs="0" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="phoneInformationType">
+				<xsd:annotation>
+					<xsd:documentation>Phone information</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="country_code" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="area_code" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="phone_number" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="extension" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="phone_type" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="isPrimary" type="xsd:boolean"
+						minOccurs="0" />
+					<xsd:element name="last_modified_on" type="xsd:dateTime"
+						minOccurs="0" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="nationalIdCardType">
+				<xsd:annotation>
+					<xsd:documentation>National ID Card information</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="action" type="xsd:long" minOccurs="0" />
+					<xsd:element name="country" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="card_type" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="national_id" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="isPrimary" type="xsd:boolean"
+						minOccurs="0" />
+					<xsd:element name="last_modified_on" type="xsd:dateTime"
+						minOccurs="0" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="employmentInformationType">
+				<xsd:annotation>
+					<xsd:documentation>Employment information</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="user_id" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="jobNumber" type="xsd:long"
+						minOccurs="0" />
+					<xsd:element name="start_date" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="end_date" type="xsd:date" minOccurs="0" />
+					<xsd:element name="originalStartDate" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="benefitsEndDate" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="bonusPayExpirationDate" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="salary_end_date" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="StockEndDate" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="isPrimary" type="xsd:boolean"
+						minOccurs="0" />
+					<xsd:element name="seniorityDate" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="payrollEndDate" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="lastDateWorked" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="serviceDate" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="last_modified_on" type="xsd:dateTime"
+						minOccurs="0" />
+					<xsd:element name="firstDateWorked" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="professionalServiceDate" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="benefits_eligibility_start_date"
+						type="xsd:date" minOccurs="0" />
+					<xsd:element name="prevEmployeeId" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string17" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string18" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string19" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string20" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string21" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string22" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string23" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string24" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string25" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string26" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string27" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string28" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string29" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string30" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string31" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string32" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string33" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string34" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string35" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string36" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string37" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string38" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string39" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string40" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string41" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string42" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string43" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string44" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string45" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string46" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string47" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string48" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string49" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string50" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string51" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string52" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string53" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string54" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string55" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string56" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string57" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string58" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string59" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string60" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string61" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string62" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string63" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string64" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string65" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string66" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string67" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string68" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string69" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string70" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string71" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string72" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string73" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string74" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string75" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string76" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string77" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string78" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string79" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string80" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string81" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string82" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string83" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string84" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string85" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string86" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string87" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string88" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string89" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string90" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string91" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string92" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string93" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string94" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string95" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string96" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string97" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string98" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string99" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string100" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date17" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date18" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date19" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date20" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date21" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date22" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date23" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date24" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date25" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date26" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date27" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date28" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date29" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date30" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double17" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double18" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double19" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double20" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long17" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long18" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long19" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long20" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="employment_id" type="xsd:short"
+						minOccurs="0" />
+					<xsd:element name="direct_reports" type="xsd:long"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Number of direct reports. Value greate 0
+								indicated that the person is a manager
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="planned_end_date" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="assignment_type" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="isHostAssignment" type="xsd:boolean"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Indicates that this employment belong to a
+								host assignment
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="job_information" type="jobInformationType"
+						minOccurs="0" maxOccurs="unbounded" />
+					<xsd:element name="compensation_information" type="compensationInformationType"
+						minOccurs="0" maxOccurs="unbounded" />
+					<xsd:element name="paycompensation_non_recurring" type="paycompensationNonRecurringType"
+						minOccurs="0" maxOccurs="unbounded" />
+					<xsd:element name="payment_information" type="paymentInformationType"
+						minOccurs="0" maxOccurs="unbounded" />
+					<xsd:element name="job_relation" type="jobRelationType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Relationship to employments of other employee
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="accompanying_dependent" type="accompanyingDependentType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Person accompanying the main person during a
+								global assignment
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="alternative_cost_distribution" type="costDistributionType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Cost center distribution replacing the cost
+								center in the job
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="emailInformationType">
+				<xsd:annotation>
+					<xsd:documentation>Email information</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="email_address" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="email_type" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="isPrimary" type="xsd:boolean"
+						minOccurs="0" />
+					<xsd:element name="last_modified_on" type="xsd:dateTime"
+						minOccurs="0" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="directDepositType">
+				<xsd:annotation>
+					<xsd:documentation>Direct Deposit information</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="action" type="xsd:long" minOccurs="0" />
+					<xsd:element name="routing_number" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="account_number" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="account_name" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="account_type" type="xsd:string"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>e.g. Savings, Checkings</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="deposit_type" type="xsd:string"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>E.g. Balance, Flat Amount, Percentage Account
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="amount" type="xsd:double" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Used if deposit type is Flat Amount or
+								Percentage Account
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="processing_order" type="xsd:long"
+						minOccurs="0" />
+					<xsd:element name="process_type" type="xsd:string"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>e.g. Payroll, Bonus, Expenses
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="country_code" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="currency_code" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="iban" type="xsd:string" minOccurs="0" />
+					<xsd:element name="bank_control_key" type="xsd:string"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Type of account, e.g. checking account or
+								savings account
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="last_modified_on" type="xsd:dateTime"
+						minOccurs="0" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="personalInformationType">
+				<xsd:annotation>
+					<xsd:documentation>Personal information</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="action" type="xsd:long" minOccurs="0" />
+					<xsd:element name="start_date" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="end_date" type="xsd:date" minOccurs="0" />
+					<xsd:element name="marital_status" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="native_preferred_lang" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="last_modified_on" type="xsd:dateTime"
+						minOccurs="0" />
+					<xsd:element name="gender" type="xsd:string" minOccurs="0" />
+					<xsd:element name="first_name" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="last_name" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="middle_name" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="suffix" type="xsd:string" minOccurs="0" />
+					<xsd:element name="salutation" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="first_name_alt1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="last_name_alt1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="nationality" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="initials" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="second_title" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="since" type="xsd:date" minOccurs="0" />
+					<xsd:element name="name_prefix" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="birth_name" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="title" type="xsd:string" minOccurs="0" />
+					<xsd:element name="is_overridden" type="xsd:boolean"
+						minOccurs="0" />
+					<xsd:element name="display_name" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="display_name_alt1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="display_name_alt2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="formal_name" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="formal_name_alt1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="formal_name_alt2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="name_format" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string17" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string18" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string19" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string20" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double17" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double18" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double19" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double20" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long17" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long18" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long19" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long20" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="personal_information_are" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>United Arab of Emirates</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_arg" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Argentina</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_aus" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Australia</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_aut" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Austria</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_bel" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Belgium</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_bgr" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Bulgaria</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_bra" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Brazil</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_can" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Canada</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_che" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Switzerland</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_chl" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Chile</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_chn" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>China</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_col" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Colombia</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_cze" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Czech Republic</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_deu" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Germany</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_dnk" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Denmark</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_esp" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Spain</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_fin" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Finland</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_fra" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>France</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_gbr" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Great Britain</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_grc" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Greece</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_hkg" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Hong Kong</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_hrv" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Croatia</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_hun" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Hungary</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_idn" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Indonesia</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_ind" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>India</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_irl" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Irland</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_ita" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>IItaly</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_jpn" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Japan</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_kor" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Korea Republic</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_mex" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Mexico</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_mys" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Malaysia</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_nld" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Netherlands</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_nor" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Norway</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_nzl" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>New Zealand</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_phl" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Philippines</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_pol" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Poland</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_prt" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Portugal</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_qat" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Qatar</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_rou" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Romania</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_rus" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Russia</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_sau" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Saudi Arabia</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_sgp" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Singapore</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_svk" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Slovakia</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_svn" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Slovenia</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_swe" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Sweden</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_ukr" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Ukraine</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_usa" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>United States of America</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_tha" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Thailand</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_twn" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Taiwan</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_ven" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Venezuela</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="personal_information_zaf" type="personalInformationPerCountryType"
+						minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>South Africa</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="addressInformationType">
+				<xsd:annotation>
+					<xsd:documentation>Address information</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="action" type="xsd:long" minOccurs="0" />
+					<xsd:element name="address_type" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address17" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address18" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address19" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address20" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address1_alt1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address1_alt2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address2_alt1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address2_alt2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address3_alt1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="address3_alt2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="city" type="xsd:string" minOccurs="0" />
+					<xsd:element name="county" type="xsd:string" minOccurs="0" />
+					<xsd:element name="state" type="xsd:string" minOccurs="0" />
+					<xsd:element name="province" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="zip_code" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="country" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="start_date" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="end_date" type="xsd:date" minOccurs="0" />
+					<xsd:element name="last_modified_on" type="xsd:dateTime"
+						minOccurs="0" />
+					<xsd:element name="custom_string1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string17" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string18" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string19" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string20" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double17" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double18" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double19" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double20" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long17" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long18" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long19" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long20" type="xsd:string"
+						minOccurs="0" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="jobInformationType">
+				<xsd:annotation>
+					<xsd:documentation>Job information</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="action" type="xsd:long" minOccurs="0" />
+					<xsd:element name="job_title" type="xsd:string" />
+					<xsd:element name="job_code" type="xsd:string" />
+					<xsd:element name="department" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="division" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="location" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="start_date" type="xsd:date">
+						<xsd:annotation>
+							<xsd:documentation>effective start date</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="end_date" type="xsd:date">
+						<xsd:annotation>
+							<xsd:documentation>effective end date</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="created_on" type="xsd:dateTime"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>date/time when the job info was created
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="last_modified_on" type="xsd:dateTime" />
+					<xsd:element name="company" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="business_unit" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="cost_center" type="xsd:string"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Can be overwriitten by segment
+								alternative_cost_distribution
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="employee_class" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="employee_type" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="employment_type" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="flsa_status" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="fte" type="xsd:double" minOccurs="0" />
+					<xsd:element name="regular_temp" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="standard_hours" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="is_fulltime_employee" type="xsd:boolean"
+						minOccurs="0" />
+					<xsd:element name="pay_grade" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="pay_group" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="event_reason" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="workingDaysPerWeek" type="xsd:double"
+						minOccurs="0" />
+					<xsd:element name="payScaleArea" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="payScaleGroup" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="payScaleType" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="timezone" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="position" type="xsd:long" minOccurs="0" />
+					<xsd:element name="manager_employment_id" type="xsd:long"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Is this filled actually?</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="is_primary" type="xsd:boolean"
+						minOccurs="0" />
+					<xsd:element name="is_shift_employee" type="xsd:boolean"
+						minOccurs="0" />
+					<xsd:element name="is_side_line_job_allowed" type="xsd:boolean"
+						minOccurs="0" />
+					<xsd:element name="local_job_title" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="payScaleLevel" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="shift_code" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string17" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string18" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string19" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string20" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string21" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string22" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string23" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string24" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string25" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string26" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string27" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string28" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string29" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string30" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string31" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string32" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string33" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string34" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string35" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string36" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string37" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string38" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string39" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string40" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string41" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string42" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string43" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string44" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string45" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string46" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string47" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string48" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string49" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string50" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string51" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string52" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string53" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string54" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string55" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string56" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string57" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string58" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string59" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string60" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string61" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string62" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string63" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string64" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string65" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string66" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string67" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string68" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string69" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string70" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string71" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string72" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string73" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string74" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string75" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string76" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string77" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string78" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string79" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string80" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string81" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string82" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string83" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string84" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string85" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string86" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string87" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string88" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string89" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string90" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string91" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string92" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string93" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string94" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string95" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string96" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string97" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string98" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string99" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_string100" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date17" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date18" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date19" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date20" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date21" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date22" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date23" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date24" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date25" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date26" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date27" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date28" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date29" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_date30" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double17" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double18" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double19" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_double20" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long17" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long18" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long19" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="custom_long20" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="manager_id" type="xsd:string"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>UsersSysId od the manager</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="manager_person_id" type="xsd:long"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>personId of the manager</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="company_territory_code" type="xsd:string"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Territory/country code of related company
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="emplStatus" type="xsd:string"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Employment status related to the event taken
+								from the jobInfo
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="event" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Event taken from the jobInfo
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="payroll_event" type="xsd:string"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Payroll event related to the event taken from
+								the EventReasonFO record
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="paycompensationNonRecurringType">
+				<xsd:annotation>
+					<xsd:documentation>Non-recurring payment information
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="action" type="xsd:long" minOccurs="0" />
+					<xsd:element name="pay_component_code" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="pay_date" type="xsd:date" minOccurs="0" />
+					<xsd:element name="value" type="xsd:double" minOccurs="0" />
+					<xsd:element name="currency_code" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="alternative_cost_center" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="pay_component_type" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="last_modified_on" type="xsd:dateTime"
+						minOccurs="0" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="costDistributionType">
+				<xsd:annotation>
+					<xsd:documentation>alternative cost distribution information
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="effectiveStartDate" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="effectiveEndDate" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="lastModifiedDate" type="xsd:dateTime"
+						minOccurs="0" />
+					<xsd:element name="alternative_cost_distribution_item"
+						type="costDistributionItemType" maxOccurs="unbounded" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="paycompensationRecurringType">
+				<xsd:annotation>
+					<xsd:documentation>Recurring payent information</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="action" type="xsd:long" minOccurs="0" />
+					<xsd:element name="pay_component" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="currency_code" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="paycompvalue" type="xsd:double"
+						minOccurs="0" />
+					<xsd:element name="frequency" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="start_date" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="end_date" type="xsd:date" minOccurs="0" />
+					<xsd:element name="pay_component_type" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="last_modified_on" type="xsd:dateTime" />
+					<xsd:element name="annualizationFactor" type="xsd:string"
+						minOccurs="0" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="SFObject">
+				<xsd:annotation>
+					<xsd:documentation>Generic type enriched by the compound employee
+						part
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="id" type="xsd:string" />
+					<xsd:element name="type" type="xsd:string" />
+					<xsd:element name="person" minOccurs="0">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="person_id" type="xsd:short"
+									minOccurs="0" />
+								<xsd:element name="date_of_birth" type="xsd:date"
+									minOccurs="0" />
+								<xsd:element name="person_id_external" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="last_modification_time" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="date_of_death" type="xsd:date"
+									minOccurs="0" />
+								<xsd:element name="country_of_birth" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="region_of_birth" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="last_modified_on" type="xsd:dateTime"
+									minOccurs="0" />
+								<xsd:element name="birth_name" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="place_of_birth" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string1" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string2" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string3" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string4" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string5" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string6" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string7" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string8" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string9" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string10" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string11" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string12" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string13" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string14" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string15" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string16" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string17" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string18" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string19" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_string20" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_date1" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_date2" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_date3" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_date4" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_date5" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_date6" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_date7" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_date8" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_date9" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_date10" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long1" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long2" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long3" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long4" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long5" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long6" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long7" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long8" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long9" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long10" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long11" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long12" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long13" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long14" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long15" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long16" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long17" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long18" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long19" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_long20" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double1" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double2" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double3" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double4" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double5" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double6" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double7" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double8" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double9" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double10" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double11" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double12" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double13" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double14" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double15" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double16" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double17" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double18" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double19" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="custom_double20" type="xsd:string"
+									minOccurs="0" />
+								<xsd:element name="logon_user_name" type="xsd:string"
+									minOccurs="0">
+									<xsd:annotation>
+										<xsd:documentation>The user name which is used for logon. Is
+											only provided if segment employment_information is requested.
+										</xsd:documentation>
+									</xsd:annotation>
+								</xsd:element>
+								<xsd:element name="logon_user_id" type="xsd:string"
+									minOccurs="0">
+									<xsd:annotation>
+										<xsd:documentation>The users_sys_id of the employment related
+											to the home assignment. Is only provided if segment
+											employment_information is requested.
+										</xsd:documentation>
+									</xsd:annotation>
+								</xsd:element>
+								<xsd:element name="logon_user_is_active" type="xsd:boolean"
+									minOccurs="0">
+									<xsd:annotation>
+										<xsd:documentation>Indicates that logon user is marked as
+											active in table USERS_SYS_ID. Is only provided if segment
+											employment_information is requested.
+										</xsd:documentation>
+									</xsd:annotation>
+								</xsd:element>
+								<xsd:element name="personal_information" type="personalInformationType"
+									minOccurs="0" maxOccurs="unbounded" />
+								<xsd:element name="address_information" type="addressInformationType"
+									minOccurs="0" maxOccurs="unbounded" />
+								<xsd:element name="phone_information" type="phoneInformationType"
+									minOccurs="0" maxOccurs="unbounded" />
+								<xsd:element name="email_information" type="emailInformationType"
+									minOccurs="0" maxOccurs="unbounded" />
+								<xsd:element name="snapshot">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element name="asOfDate" type="xsd:date" />
+											<xsd:element minOccurs="0" name="is_earliest_effective_dated" nillable="true" type="xsd:boolean"/>
+											<xsd:element name="personal_information" type="personalInformationType"
+												minOccurs="0" maxOccurs="unbounded" />
+											<xsd:element name="address_information" type="addressInformationType"
+												minOccurs="0" maxOccurs="unbounded" />
+											<xsd:element name="employment_information" type="employmentInformationType"
+												minOccurs="0" maxOccurs="unbounded" />
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="log" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>reports error messages related to the person
+							</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="log_item" type="logItemType"
+									maxOccurs="unbounded">
+									<xsd:annotation>
+										<xsd:documentation>a single error message</xsd:documentation>
+									</xsd:annotation>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="QueryResult">
+				<xsd:annotation>
+					<xsd:documentation>Root structure</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="sfobject" type="SFObject" maxOccurs="unbounded" />
+					<xsd:element name="numResults" type="xsd:short" />
+					<xsd:element name="hasMore" type="xsd:boolean" />
+					<xsd:element name="querySessionId" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="personalInformationPerCountryType">
+				<xsd:annotation>
+					<xsd:documentation>Country-specific personal information
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="country" type="xsd:string" />
+					<xsd:element name="genericString1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericString2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericString3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericString4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericString5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericString6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericString7" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericString8" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericString9" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericString10" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericString11" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericString12" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericString13" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericString14" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericString15" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericString16" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericDate1" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="genericNumber1" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericNumber2" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericNumber3" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericNumber4" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericNumber5" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericNumber6" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="genericNumber7" type="xsd:string"
+						minOccurs="0" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="paymentInformationType">
+				<xsd:annotation>
+					<xsd:documentation>Payment information</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="payment_method" type="xsd:string" />
+					<xsd:element name="last_modified_on" type="xsd:dateTime" />
+					<xsd:element name="start_date" type="xsd:date" />
+					<xsd:element name="end_date" type="xsd:date" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="costDistributionItemType">
+				<xsd:annotation>
+					<xsd:documentation>alternative cost distribution item
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="costCenter" type="xsd:string" />
+					<xsd:element name="percentage" type="xsd:decimal" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="personRelationType">
+				<xsd:annotation>
+					<xsd:documentation>Dependents of the person</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="start_date" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="end_date" type="xsd:date" minOccurs="0" />
+					<xsd:element name="related_person_id" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="relationship_type" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="is_address_same_as_person" type="xsd:boolean"
+						minOccurs="0" />
+					<xsd:element name="last_modified_on" type="xsd:dateTime"
+						minOccurs="0" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="jobRelationType">
+				<xsd:annotation>
+					<xsd:documentation>Persons related to an employment
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="start_date" type="xsd:date"
+						minOccurs="0" />
+					<xsd:element name="end_date" type="xsd:date" minOccurs="0" />
+					<xsd:element name="relationship_type" type="xsd:string"
+						minOccurs="0" />
+					<xsd:element name="last_modified_on" type="xsd:dateTime"
+						minOccurs="0" />
+					<xsd:element name="user_id" type="xsd:string"
+						minOccurs="0" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="accompanyingDependentType">
+				<xsd:annotation>
+					<xsd:documentation>Persons accompanying an employee during a global
+						assignment
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="related_person_id" type="xsd:short" />
+					<xsd:element name="last_modified_on" type="xsd:dateTime" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="logItemType">
+				<xsd:annotation>
+					<xsd:documentation>Log item specifying issues with the person
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="node_name" type="xsd:Name"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Name of the node containing the erroneous
+								field
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="field_name" type="xsd:Name"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Name of the field causing the error
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="xpath" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>XPath expression denoting the node where the
+								error occurred
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="person_id" type="xsd:string"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Person Id for which the error occured
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="person_id_external" type="xsd:string"
+						minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Person Id external for which the error occured
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="message_text" type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>User-friendly message text</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="queryResponse">
+		<wsdl:part name="queryResponse" element="queryResponse" />
+	</wsdl:message>
+	<wsdl:message name="CompoundEmployee">
+		<wsdl:part name="CompoundEmployee" element="CompoundEmployee" />
+	</wsdl:message>
+</wsdl:definitions>
