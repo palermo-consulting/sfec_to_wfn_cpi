@@ -15,7 +15,9 @@
 
 ## Package Contents
 
-All CPI artifacts are contained in the folder called *package*.  To import the artifacts, first create a package in CPI and then import the artifacts one by one, starting with the value mappings.  The artifacts are listed below.
+All CPI artifacts are contained in the folder *package*.  It is further divided into subfolders for the respective artifact type.  For example, for integration flows, the subfolder will be *integration_flows*. The archived artifact will be contained in the respective subfolder as a ZIP file.  The filename will be the name specified in the following table with the extension *.zip*.  
+
+To import the artifacts, first create a package in CPI and then import the artifacts one by one, starting with the value mappings.  The artifacts are listed below.
 
 | Name                     | ID                       | Type             | Version | Description                                                  |
 | ------------------------ | ------------------------ | ---------------- | ------- | ------------------------------------------------------------ |
